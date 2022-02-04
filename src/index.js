@@ -35,4 +35,8 @@ const addImage = () => {
 
 addButton.addEventListener("click", addImage);
 
-
+// Limpiar
+const clean = document.querySelector("button[type='reset']");
+clean.addEventListener("click", () => {
+  mountNode.innerHTML = "";
+});

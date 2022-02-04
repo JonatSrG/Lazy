@@ -6,13 +6,15 @@ const isIntersecting = (entry) => {
 };
 
 const loadImage = (entry) => {
-    const container = entry.target;
-    const imagen = container.firstChild;
+    const imgNode = entry.target;
+    const imagen = imgNode.firstChild;
     const url = imagen.dataset.src;
-    //cargar la imagen
     imagen.src = url;
 
-    observer.unobserve(container);
+        loadedImages += 1;
+        logState();
+    
+    observer.unobserve(imgNode);
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -25,11 +27,12 @@ const observer = new IntersectionObserver((entries) => {
 export const registerImage = (imagen) => {
     //IntersectationaOnserver -> observr(iimagen)
     observer.observe(imagen);
+    totalImages += 1;
     logState();
 };
 
 function logState() {
-    console.log(`⚪️ Total Imágenes: ${totalImages}`);
-    console.log(`🟣 Imágenes cargadas: ${loadedImages}`);
+    console.log(`○ Total Imágenes: ${totalImages}`);
+    console.log(`⭕️ Imágenes cargadas: ${loadedImages}`);
     console.log("--------------------------------------");
-  }
+}
