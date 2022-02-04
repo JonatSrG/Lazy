@@ -3,4 +3,4 @@
  * When you're ready to start on your site, clear the file. Happy hacking!
  **/
 
-console.log('Happy hacking :)')
+console.log('Happy hacking:)')
